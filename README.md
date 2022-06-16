@@ -1,2 +1,3 @@
 # Math3D
-C++ math library for 3D graphics.
+
+An easy-to-read and self-contained C++ math library for 3D graphics.
