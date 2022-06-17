@@ -199,14 +199,11 @@ namespace m3
 			Clamp(v.z, min.z, max.z));
 	}
 
-	void OrthoNormalize(Vec3& v1, Vec3& v2)
+	void OrthoNormalize(Vec3& normal, Vec3& tangent)
 	{
-		Normalize(v1);
-		Normalize(v2);
-		Vec3 v3 = Cross(v1, v2); 
-
-		Quat q = AngleAxis(v3, PI * 0.5);
-		v2 = q * v1;
+		Normalize(normal);
+		tangent = tangent - Project(tangent, normal);
+		Normalize(tangent);
 	}
 
 }

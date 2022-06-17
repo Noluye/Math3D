@@ -68,5 +68,5 @@ namespace m3
 	/// </summary>
 	/// <param name="v1"></param>
 	/// <param name="v2"></param>
-	void OrthoNormalize(Vec3& v1, Vec3& v2);
+	void OrthoNormalize(Vec3& normal, Vec3& tangent);
 }
