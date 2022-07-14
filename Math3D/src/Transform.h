@@ -11,16 +11,17 @@ namespace m3
 		Quat rotation;
 		Vec3 scale;
 		Transform() :
-			position(Vec3(0, 0, 0)),
+			position(Vec3(0.0)),
 			rotation(Quat(0, 0, 0, 1)),
-			scale(Vec3(1, 1, 1)) {}
+			scale(Vec3(1.0)) {}
 		Transform(const Vec3& p, const Quat& r) :
-			position(p), rotation(r), scale(Vec3(1, 1, 1)) {}
+			position(p), rotation(r), scale(Vec3(1.0)) {}
 		Transform(const Vec3& p, const Quat& r, const Vec3& s) :
 			position(p), rotation(r), scale(s) {}
 	}; // End of transform struct
-
-	Transform Combine(const Transform& a, const Transform& b);
+	
+	Transform Combine(const Transform& parent, const Transform& curr);
+	Transform operator*(const Transform& parent, const Transform& curr);
 	Transform Inverse(const Transform& t);
 	Transform Mix(const Transform& a, const Transform& b, float t);
 	bool operator==(const Transform& a, const Transform& b);
