@@ -281,9 +281,19 @@ namespace m3
 		return AngleAxis(Vec3(0, 0, 1), z) * AngleAxis(Vec3(0, 1, 0), y) * AngleAxis(Vec3(1, 0, 0), x);
 	}
 
+	Quat QuatFromEulerXYZ(Vec3 v)
+	{
+		return AngleAxis(Vec3(0, 0, 1), v.z) * AngleAxis(Vec3(0, 1, 0), v.y) * AngleAxis(Vec3(1, 0, 0), v.x);
+	}
+
 	Quat QuatFromEulerZYX(float x, float y, float z)
 	{
 		return AngleAxis(Vec3(0, 0, 1), x) * AngleAxis(Vec3(0, 1, 0), y) * AngleAxis(Vec3(1, 0, 0), z);
+	}
+
+	Quat QuatFromEulerZYX(Vec3 v)
+	{
+		return AngleAxis(Vec3(0, 0, 1), v.x) * AngleAxis(Vec3(0, 1, 0), v.y) * AngleAxis(Vec3(1, 0, 0), v.z);
 	}
 
 	Vec3 QuatLog(Quat q, float eps)

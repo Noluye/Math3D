@@ -58,7 +58,9 @@ namespace m3
 	Quat Mat4ToQuat(const Mat4& m);
 
 	Quat QuatFromEulerXYZ(float x, float y, float z);
+	Quat QuatFromEulerXYZ(Vec3 v);
 	Quat QuatFromEulerZYX(float x, float y, float z);
+	Quat QuatFromEulerZYX(Vec3 v);
 	Vec3 QuatLog(Quat q, float eps = QUAT_EPSILON);
 	/// <summary>
 	/// deprecated
