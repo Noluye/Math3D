@@ -9,7 +9,8 @@ namespace m3
 	//	return x > max ? max : x < min ? min : x;
 	//}
 
-	Quat AngleAxis(const Vec3& axis, const float angle) {
+	Quat AngleAxis(const Vec3& axis, float angle, bool degree) {
+		if (degree) angle = Deg2Rad(angle);
 		Vec3 norm = Normalized(axis);
 		float s = sinf(angle * 0.5f);
 
@@ -56,8 +57,9 @@ namespace m3
 		return Normalized(Vec3(Quat.x, Quat.y, Quat.z));
 	}
 
-	float GetAngle(const Quat& Quat) {
-		return 2.0f * acosf(Quat.w);
+	float GetAngle(const Quat& Quat, bool degree) {
+		if (degree) return Rad2Deg(2.0f * acosf(Quat.w));
+		else return 2.0f * acosf(Quat.w);
 	}
 
 	Quat operator+(const Quat& a, const Quat& b) {

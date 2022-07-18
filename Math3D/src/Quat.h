@@ -29,10 +29,10 @@ namespace m3
 		friend std::ostream& operator<<(std::ostream& output, const Quat& q);
 	};
 
-	Quat AngleAxis(const Vec3& axis, const float angle);
+	Quat AngleAxis(const Vec3& axis, float angle, bool degree = false);
 	Quat FromTo(const Vec3& from, const Vec3& to);
 	Vec3 GetAxis(const Quat& Quat);
-	float GetAngle(const Quat& Quat);
+	float GetAngle(const Quat& Quat, bool degree = false);
 	Quat operator+(const Quat& a, const Quat& b);
 	Quat operator-(const Quat& a, const Quat& b);
 	Quat operator*(const Quat& a, float b);
@@ -56,7 +56,7 @@ namespace m3
 	Quat LookRotation(const Vec3& direcion, const Vec3& up);
 	Mat4 QuatToMat4(const Quat& q);
 	Quat Mat4ToQuat(const Mat4& m);
-	
+
 	Quat QuatFromEulerXYZ(float x, float y, float z);
 	Quat QuatFromEulerZYX(float x, float y, float z);
 	Vec3 QuatLog(Quat q, float eps = QUAT_EPSILON);
@@ -73,5 +73,5 @@ namespace m3
 	Quat QuatFromScaledAngleAxis(Vec3 v, float eps = 1e-8f);
 	Quat QuatExp(Vec3 v, float eps = 1e-8f);
 
-	Vec3 ToEuler(const Quat& q, const std::string& order = "XYZ", bool degree=true);
+	Vec3 ToEuler(const Quat& q, const std::string& order = "XYZ", bool degree = true);
 }
