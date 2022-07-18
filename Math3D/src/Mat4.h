@@ -88,6 +88,6 @@ namespace m3
 	Mat4 perspective(float fov, float aspect, float znear, float zfar);
 	Mat4 ortho(float l, float r, float b, float t, float n, float f);
 	Mat4 lookAt(const Vec3& position, const Vec3& target, const Vec3& up);
-	Vec3 to_euler(const Mat4& m, const std::string& order);
+	Vec3 ToEuler(const Mat4& m, const std::string& order, bool degree=true);
 
 }

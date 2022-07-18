@@ -71,4 +71,7 @@ namespace m3
 	/// <param name="v1"></param>
 	/// <param name="v2"></param>
 	void OrthoNormalize(Vec3& normal, Vec3& tangent);
+
+	Vec3 Rad2Deg(Vec3 rad);
+	Vec3 Deg2Rad(Vec3 deg);
 }

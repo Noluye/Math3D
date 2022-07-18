@@ -206,4 +206,7 @@ namespace m3
 		Normalize(tangent);
 	}
 
+	Vec3 Rad2Deg(Vec3 rad) { return rad * 180 / PI; }
+
+	Vec3 Deg2Rad(Vec3 deg) { return deg * PI / 180; }
 }

@@ -58,7 +58,7 @@ namespace m3
 	Quat Mat4ToQuat(const Mat4& m);
 	
 	Quat QuatFromEulerXYZ(float x, float y, float z);
-	Quat QuatFromEulerXYZ2(float x, float y, float z);
+	Quat QuatFromEulerZYX(float x, float y, float z);
 	Vec3 QuatLog(Quat q, float eps = QUAT_EPSILON);
 	/// <summary>
 	/// deprecated
@@ -73,6 +73,5 @@ namespace m3
 	Quat QuatFromScaledAngleAxis(Vec3 v, float eps = 1e-8f);
 	Quat QuatExp(Vec3 v, float eps = 1e-8f);
 
-	Vec3 ToEuler(const Quat& q, const std::string& order);
-
+	Vec3 ToEuler(const Quat& q, const std::string& order = "XYZ", bool degree=true);
 }

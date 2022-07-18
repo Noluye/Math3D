@@ -273,12 +273,13 @@ namespace m3
 		return LookRotation(forward, up);
 	}
 
+	// TODO: is it correct?
 	Quat QuatFromEulerXYZ(float x, float y, float z)
 	{
 		return AngleAxis(Vec3(0, 0, 1), z) * AngleAxis(Vec3(0, 1, 0), y) * AngleAxis(Vec3(1, 0, 0), x);
 	}
 
-	Quat QuatFromEulerXYZ2(float x, float y, float z)
+	Quat QuatFromEulerZYX(float x, float y, float z)
 	{
 		return AngleAxis(Vec3(0, 0, 1), x) * AngleAxis(Vec3(0, 1, 0), y) * AngleAxis(Vec3(1, 0, 0), z);
 	}
@@ -372,11 +373,10 @@ namespace m3
 		}
 	}
 
-	// heyulong
-	Vec3 ToEuler(const Quat& q, const std::string& order)
+	Vec3 ToEuler(const Quat& q, const std::string& order, bool degree)
 	{
 		Mat4 m = QuatToMat4(q);
-		return to_euler(m, order);
+		return ToEuler(m, order, degree);
 	}
 
 }

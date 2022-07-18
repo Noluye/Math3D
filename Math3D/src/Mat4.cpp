@@ -242,7 +242,7 @@ w * m.v[3 * 4 + mRow]
 		);
 	}
 
-	Vec3 to_euler(const Mat4& m, const std::string& order)
+	Vec3 ToEuler(const Mat4& m, const std::string& order, bool degree)
 	{
 		double a = m.xx;
 		double f = m.yx;
@@ -344,9 +344,13 @@ w * m.v[3 * 4 + mRow]
 			throw std::runtime_error("Bad order!");
 		}
 
-		x = to_angle(x);
-		y = to_angle(y);
-		z = to_angle(z);
+		if (degree)
+		{
+			x = Rad2Deg(x);
+			y = Rad2Deg(y);
+			z = Rad2Deg(z);
+		}
+		
 		return euler;
 	}
 
