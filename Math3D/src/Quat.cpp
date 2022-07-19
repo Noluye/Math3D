@@ -391,4 +391,16 @@ namespace m3
 		return ToEuler(m, order, degree);
 	}
 
+	Quat RotateTowards(Quat from, Quat to, float maxDegreesDelta)
+	{
+		float num = Angle(from, to);
+		if (Abs(num) < FLOAT_EPSILON) return to;
+		return Slerp(from, to, Min(1.0f, maxDegreesDelta / num));
+	}
+
+	float Angle(Quat a, Quat b)
+	{
+		float num = Min(Abs(Dot(a, b)), 1.0f);
+		return (num > 0.999999f) ? 0.0f : (Acos(num) * 2.0f * 57.29578f);
+	}
 }

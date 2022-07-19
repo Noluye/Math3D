@@ -76,4 +76,8 @@ namespace m3
 	Quat QuatExp(Vec3 v, float eps = 1e-8f);
 
 	Vec3 ToEuler(const Quat& q, const std::string& order = "XYZ", bool degree = true);
+
+	// Rotates a rotation from towards to.
+	Quat RotateTowards(Quat from, Quat to, float maxDegreesDelta);
+	float Angle(Quat a, Quat b);
 }
